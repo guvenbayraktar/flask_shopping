@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alisveris Listesi</title>
+    <style>
+    h2 {color:navy;}
+    </style>
+</head>
+<body>
+<h2>Sepete Urun Ekleme</h2>
+<form action="/add_product" method="post" style="line-height:30px">
+    <input type="text" id="pn" name="product_name" required placeholder="urun adi"><br>
+    <input type="number" id="pa" name="product_amount" min="1" placeholder="urun adedi"><br>
+    <input type="submit" value="Ekle">
+</form>
+<h2>Sepetiniz</h2>
+<ol style="line-height:25px">
+    {% for x,y in sepet.items() %}
+    <li>
+        {{ x }} ({{ y }})    <a href="/remove_product/{{ x }}">×</a>
+    </li>
+    {% endfor %}
+</ol>
+</body>
+</html>
